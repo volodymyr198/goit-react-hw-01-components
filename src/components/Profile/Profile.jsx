@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import css from './Profile.module.css';
+import * as style from './Profile.styled';
 
 export const Profile = ({
     username,
@@ -9,29 +9,29 @@ export const Profile = ({
     stats: { followers, views, likes },
 }) => {
     return (
-        <div className={css.profile}>
-            <div className={css.description}>
-                <img src={avatar} alt="User avatar" className={css.avatar} />
-                <p className={css.name}>{username}</p>
-                <p className={css.tag}>@{tag}</p>
-                <p className={css.location}>{location}</p>
-            </div>
+        <style.ProfileBox>
+            <style.Description>
+                <style.UserAvatar src={avatar} alt="User avatar" />
+                <style.UserName>{username}</style.UserName>
+                <style.UserTag>@{tag}</style.UserTag>
+                <style.UserLocation>{location}</style.UserLocation>
+            </style.Description>
 
-            <ul className={css.stats}>
-                <li>
-                    <span className={css.label}>Followers</span>
-                    <span className={css.quantity}>{followers}</span>
-                </li>
-                <li>
-                    <span className={css.label}>Views</span>
-                    <span className={css.quantity}>{views}</span>
-                </li>
-                <li>
-                    <span className={css.label}>Likes</span>
-                    <span className={css.quantity}>{likes}</span>
-                </li>
-            </ul>
-        </div>
+            <style.StatsList>
+                <style.StatsItem>
+                    <style.ItemLabel>Followers</style.ItemLabel>
+                    <style.ItemQuantity>{followers}</style.ItemQuantity>
+                </style.StatsItem>
+                <style.StatsItem>
+                    <style.ItemLabel>Views</style.ItemLabel>
+                    <style.ItemQuantity>{views}</style.ItemQuantity>
+                </style.StatsItem>
+                <style.StatsItem>
+                    <style.ItemLabel>Likes</style.ItemLabel>
+                    <style.ItemQuantity>{likes}</style.ItemQuantity>
+                </style.StatsItem>
+            </style.StatsList>
+        </style.ProfileBox>
     );
 };
 
